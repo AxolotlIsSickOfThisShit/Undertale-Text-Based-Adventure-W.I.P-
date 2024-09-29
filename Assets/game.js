@@ -73,7 +73,9 @@ const locations = {
 const cmd = {
     say: (speech) => {
         let raw = speech;
-        let final = raw.replace(/\/y/g, "<b>").replace(/\/n/g, "<br>");
+        let step1 = raw.replace(/\/y/g, "<b>");
+        let step2 = step1.replace(/\/n/g, "<br>");
+        let final = step2.replace(/\/r/g, "</b>");
         appendOutput(`"${final}"`)
         return(speech);
     },
