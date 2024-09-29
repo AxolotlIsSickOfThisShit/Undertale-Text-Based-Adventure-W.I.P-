@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'Monster Friend Fore Regular';
+    src: url("Fonts/MonsterFriendFore.otf");
+}
+
+@font-face {
+    font-family: 'Determination Sans Web';
+    src: url("Fonts/DeterminationSansWebRegular-369X.otf");
+}
+
+@font-face {
+    font-family: 'Determination Mono Web';
+    src: url("Fonts/DeterminationMonoWebRegular-Z5oq.otf");
+}
+
+body {
+    background-color: black;
+    font-family: "Determination Sans Web";
+}
+
+p {
+    color: white;
+    margin: auto 20px;
+    font-size: 20px;
+    padding: 5px;
+}
+
+h1 {
+    color: white;
+    font-family: "Monster Friend Fore Regular";
+    font-size: 50;
+    margin: 30px auto;
+    display: block;
+    text-align: center;
+}
+
+h2 {
+    color: yellow;
+    font-family: "Determination Mono Web";
+    font-size: 20;
+    margin: 30px auto;
+    display: block;
+    text-align: center;
+}
+
+a {
+    color: hotpink;
+}
+
+b {
+    color: yellow;
+    font-weight: normal;
+}
+
+#output {
+    background-color: #000000;
+    border: 5px solid #fff;
+    padding: 5px;
+    height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+#input {
+    background-color: black;
+    width: 97%;
+    padding: 10px;
+    font-size: 25px;
+    color: yellow;
+    border:5px solid white;
+    font-family:"Determination Mono Web";
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #ffffff;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #FFFF00;
+}
