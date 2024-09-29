@@ -71,14 +71,6 @@ const locations = {
 }; // Expand and modify this list to add more locations.
 
 const cmd = {
-    say: (speech) => {
-        let raw = speech;
-        let step1 = raw.replace(/\/y/g, "<b>");
-        let step2 = step1.replace(/\/n/g, "<br>");
-        let final = step2.replace(/\/r/g, "</b>");
-        appendOutput(`"${final}"`)
-        return(speech);
-    },
     items: () => {
         appendOutput(`You have: ${gameState.inventory.join(", ")}`);
     },
@@ -113,7 +105,7 @@ const cmd = {
         displayLocation();
     },
     help: () => {
-        appendOutput("Available commands: go (or walk) [direction] (or just type the first letter of a direction and nothing else), take (or get or grab) [item], examine (or look) [room], help (or \"?\"), clear (or clr), ITEM (or items), stat, say [speech]."); // Modify this string to change the HELP message!
+        appendOutput("Available commands: go (or walk) [direction] (or just type the first letter of a direction and nothing else), take (or get or grab) [item], examine (or look) [room], help (or \"?\"), clear (or clr), ITEM (or items), stat."); // Modify this string to change the HELP message!
     }, // Modify or add definitions here to add more commands.
     stat: () => {
         appendOutput(`HP: ${gameState.hp}<br>* Max HP: ${gameState.maxhp}<br>* LV: ${gameState.lv}<br>* ATK: ${gameState.atk}<br>* DEF: ${gameState.def}`)
