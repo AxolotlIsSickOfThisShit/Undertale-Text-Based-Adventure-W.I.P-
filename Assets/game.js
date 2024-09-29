@@ -74,7 +74,7 @@ const cmd = {
     say: (speech) => {
         let raw = speech;
         let final = raw.replace(/\/y/g, "<b>").replace(/\/n/g, "<br>* ");
-        appendOutput(`* "${final}"`)
+        appendOutput(`"${final}"`)
         return(speech);
     },
     items: () => {
