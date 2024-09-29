@@ -60,11 +60,23 @@ const locations = {
     // You WILL get an error if you do not define the event property.
     firstLocation: {
         description: "You are on a patch of golden flowers.<br>* To the east is a hall with a doorway at the end of it.",
-        east: "flowey0"
+        east: "flowey0",
+        event: () => {
+            console.log("First Location has no event set.");
+        }
+    },
+    flowey0: {
+        description: "You are in a large room with a doorway at the end of it.<br>There's a small patch of grass in the middle of the room."
     }
 }; // Expand and modify this list to add more locations.
 
 const cmd = {
+    say: (speech) => {
+        let raw = speech;
+        let final = raw.replace(/\/y/g, "<b>").replace(/\/n/g, "<br>* ");
+        appendOutput(`* "${final}"`)
+        return(speech);
+    },
     items: () => {
         appendOutput(`You have: ${gameState.inventory.join(", ")}`);
     },
@@ -99,7 +111,7 @@ const cmd = {
         displayLocation();
     },
     help: () => {
-        appendOutput("Available commands: go (or walk) [direction] (or just type the first letter of a direction and nothing else), take (or get or grab) [item], examine (or look) [room], help (or \"?\"), clear (or clr), ITEM (or items)."); // Modify this string to change the HELP message!
+        appendOutput("Available commands: go (or walk) [direction] (or just type the first letter of a direction and nothing else), take (or get or grab) [item], examine (or look) [room], help (or \"?\"), clear (or clr), ITEM (or items), stat, say [speech]."); // Modify this string to change the HELP message!
     }, // Modify or add definitions here to add more commands.
     stat: () => {
         appendOutput(`HP: ${gameState.hp}<br>* Max HP: ${gameState.maxhp}<br>* LV: ${gameState.lv}<br>* ATK: ${gameState.atk}<br>* DEF: ${gameState.def}`)
