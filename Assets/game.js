@@ -302,7 +302,7 @@ const cmd = {
     talk:(target)=>{
         if (save.inbattle!=0){
             console.log("Sorry, battles are not fully implemented yet!");
-            break;
+            return;
         } else {
             if (save.currentLocation.npc[target]) {
                 appendOutput("What would you like to say? (Please type the number corresponding to the question.");
