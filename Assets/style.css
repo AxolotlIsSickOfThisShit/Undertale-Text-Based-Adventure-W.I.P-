@@ -60,31 +60,32 @@ b {
     overflow-y: auto;
     margin-bottom: 10px;
 }
+
 #input {
     background-color: black;
     width: 97%;
     padding: 10px;
     font-size: 25px;
     color: yellow;
-    border:5px solid white;
-    font-family:"Determination Mono Web";
+    border: 5px solid white;
+    font-family: "Determination Mono Web";
 }
 
 /* width */
 ::-webkit-scrollbar {
     width: 15px;
 }
-  
+
 /* Track */
 ::-webkit-scrollbar-track {
     background: #000000;
 }
-  
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: #ffffff;
 }
-  
+
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #FFFF00;

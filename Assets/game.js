@@ -23,12 +23,12 @@ function handleInput(input) {
 
 };
 
-function calcATK(lv,bonus) {
+function calcATK(lv, bonus) {
     let atk = 6 + lv * 4
     return atk + bonus;
 }
 
-function calcDEF(lv,bonus) {
+function calcDEF(lv, bonus) {
     let def = 7 + lv * 3
     return def + bonus;
 }
@@ -39,7 +39,7 @@ function calcHP(lv) {
 }
 
 function calcMAXHP(lv) {
-    let  maxhp = 20 + Math.floor(lv * 3.2)
+    let maxhp = 20 + Math.floor(lv * 3.2)
     return maxhp;
 }
 
@@ -48,8 +48,8 @@ function lvUP() {
     let exp = gameState.exp;
     if (Math.floor(exp / 150 * lv) >= lv) {
         lv++
-        gameState.def = calcDEF(lv,gameState.bonusdf)
-        gameState.atk = calcATK(lv,gameState.bonusat)
+        gameState.def = calcDEF(lv, gameState.bonusdf)
+        gameState.atk = calcATK(lv, gameState.bonusat)
         gameState.hp = calcHP(lv);
         gameState.maxhp = calcMAXHP(lv);
         gameState.exp = 0;
@@ -78,8 +78,8 @@ document.getElementById('input').addEventListener('keypress', function (event) {
     }
 });
 
-function onBattleWin(exp,G) {
-    gameState.exp =  gameState.exp + exp;
+function onBattleWin(exp, G) {
+    gameState.exp = gameState.exp + exp;
     gameState.g = gameState.g + G;
     lvUP();
 }
@@ -89,17 +89,17 @@ function onBattleWin(exp,G) {
 const gameState = {
     currentLocation: 'firstLocation', // Change this value to change the room you start in!
     inventory: ["light keyboard"], // Add things inside this list to add them to your inventory!
-    hp:20,
-    maxhp:20,
-    lv:1,
-    atk:1,
+    hp: 20,
+    maxhp: 20,
+    lv: 1,
+    atk: 1,
     bonusat: 0,
-    def:1,
-    bonusdf:0,
+    def: 1,
+    bonusdf: 0,
     armor: "bandage",
     weapon: "stick",
-    exp:0,
-    g:0
+    exp: 0,
+    g: 0
 }; // Modify this const to add things to the game logic!
 
 const locations = {
@@ -118,7 +118,7 @@ const locations = {
 const items = {
     "monster candy": {
         description: "A piece of candy that heals 5 HP.<br>* Does not taste like black licorice.",
-        h:5,
+        h: 5,
         onUse: (amount) => {
             appendOutput("You eat the Monster Candy.<br>* It actually doesn't taste like licorice.");
             appendOutput(`You healed ${amount} HP.`);
@@ -127,7 +127,7 @@ const items = {
     },
     "spider donut": {
         description: "A donut made by spiders, for spiders...<br>* Of spiders! (Heals 9 HP.)",
-        h:9,
+        h: 9,
         onUse: (amount) => {
             appendOutput("You ate the Spider Donut. Not bad for a bunch of arthropods!");
             appendOutput(`You healed ${amount} HP.`);
@@ -140,7 +140,7 @@ const items = {
 const equipment = {
     bandage: {
         description: "A worn bandage that heals 5 HP when used.<br>* Not very effective.",
-        h:5,
+        h: 5,
         onUse: () => {
             appendOutput("You reapply the bandage to heal yourself.");
             appendOutput(`You healed ${h} HP.`);
@@ -148,24 +148,24 @@ const equipment = {
     },
     stick: {
         description: "A stick that can be used as a weapon.<br>* Not very effective.",
-        a:0,
+        a: 0,
         onUse: () => {
             appendOutput("You equip the stick.");
             appendOutput("You are now holding a stick.");
             gameState.bonusat = a
-            let atk = calcATK(gameState.lv,a) 
+            let atk = calcATK(gameState.lv, a)
             appendOutput(`Your ATK is now ${atk}.`)
             gameState.atk = atk
         }
     },
     "light keyboard": {
         description: "A lightweight keyboard.<br>* Could be used as a weapon.",
-        a:2,
-        onUse:()=>{
+        a: 2,
+        onUse: () => {
             appendOutput("You equip the keyboard.");
             appendOutput("It makes a clacking sound as you do.");
             gameState.bonusat = a
-            let atk = calcATK(gameState.lv,a) 
+            let atk = calcATK(gameState.lv, a)
             appendOutput(`Your ATK is now ${atk}.`)
             gameState.atk = atk
         }
@@ -173,14 +173,14 @@ const equipment = {
 }
 
 const cmd = {
-    use: (i)=>{
+    use: (i) => {
         if (i in items) {
             if (i in inventory) {
                 i.onUse();
             } else {
                 appendOutput("You don't have that item.");
             }
-        } else if ( i in equipment) {
+        } else if (i in equipment) {
             if (i in inventory) {
                 i.onUse();
             } else {
@@ -269,7 +269,7 @@ const alias = {
     clr: () => {
         cmd.clear();
     },
-    equip:(i)=>{
+    equip: (i) => {
         cmd.use(i);
     }
 }; // This const defines aliases. To add one, simply follow the format of the ones above.
