@@ -185,10 +185,10 @@ const cmd = {
                 i.onUse();
             } else {
                 appendOutput("You don't have that equipment.");
-            }
+            };
         } else {
-            appendOutput(`"${i}" is not a valid item or equipment. Check your spelling and try again.`)
-        }
+            appendOutput(`"${i}" is not a valid item or equipment. Check your spelling and try again.`);
+        };
     },
 
     items: () => {
