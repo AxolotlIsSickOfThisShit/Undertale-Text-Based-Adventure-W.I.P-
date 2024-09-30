@@ -88,7 +88,7 @@ function onBattleWin(exp,G) {
 
 const gameState = {
     currentLocation: 'firstLocation', // Change this value to change the room you start in!
-    inventory: ["Light Keyboard"], // Add things inside this list to add them to your inventory!
+    inventory: ["light keyboard"], // Add things inside this list to add them to your inventory!
     hp:20,
     maxhp:20,
     lv:1,
@@ -116,7 +116,7 @@ const locations = {
     }
 }; // Expand and modify this list to add more locations.
 const items = {
-    "Monster Candy": {
+    "monster candy": {
         description: "A piece of candy that heals 5 HP.<br>* Does not taste like black licorice.",
         h:5,
         onUse: (amount) => {
@@ -125,7 +125,7 @@ const items = {
             // Here you can add more effects.
         }
     },
-    "Spider Donut": {
+    "spider donut": {
         description: "A donut made by spiders, for spiders...<br>* Of spiders! (Heals 9 HP.)",
         h:9,
         onUse: (amount) => {
@@ -138,7 +138,7 @@ const items = {
 }// List of items. Items MUST be in this list or the equipment list, or the game won't recognize them.
 
 const equipment = {
-    Bandage: {
+    bandage: {
         description: "A worn bandage that heals 5 HP when used.<br>* Not very effective.",
         h:5,
         onUse: () => {
@@ -146,7 +146,7 @@ const equipment = {
             appendOutput(`You healed ${h} HP.`);
         }
     },
-    Stick: {
+    stick: {
         description: "A stick that can be used as a weapon.<br>* Not very effective.",
         a:0,
         onUse: () => {
@@ -158,7 +158,7 @@ const equipment = {
             gameState.atk = atk
         }
     },
-    "Light Keyboard": {
+    "light keyboard": {
         description: "A lightweight keyboard.<br>* Could be used as a weapon.",
         a:2,
         onUse:()=>{
@@ -174,8 +174,8 @@ const equipment = {
 
 const cmd = {
     use: (i)=>{
-        if (i in items.toLowerCase() | i in equipment.toLowerCase()) {
-            if (i in inventory.toLowerCase()) {
+        if (i in items | i in equipment) {
+            if (i in inventory) {
                 i.onUse();
             } else {
                 appendOutput("You don't have that item.");
