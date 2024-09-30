@@ -221,6 +221,7 @@ const locations = {
     },
     flowey0: {
         description: "You are in a large room with a doorway at the end of it.<br>There's a small patch of grass in the middle of the room.<br>* There's a door to your south, heading back the way you came.",
+        south: "firstLocation",
         npc: [
 
         ],
@@ -228,7 +229,7 @@ const locations = {
             let spwn = floweyCheck();
 
             if (spwn) {
-                locations.flowey0.push("flowey")
+                locations.flowey0.npc.push("flowey")
                 appendOutput("Suddenly, a golden yellow flower sprouts from the grass patch.");
                 appendOutput("Howdy! I'm Flowey! Flowey the Flower!<br>* Hmm... you seem new to this. Maybe even new to the Underground!<br>* Well, guess lil old me should be there to help you!<br>* Come over and talk to me if you want to get some help!")
             }
