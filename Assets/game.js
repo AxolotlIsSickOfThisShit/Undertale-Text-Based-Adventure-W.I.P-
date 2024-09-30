@@ -228,7 +228,7 @@ const locations = {
             let spwn = floweyCheck();
 
             if (spwn) {
-                npc.push("flowey")
+                locations.flowey0.push("flowey")
                 appendOutput("Suddenly, a golden yellow flower sprouts from the grass patch.");
                 appendOutput("Howdy! I'm Flowey! Flowey the Flower!<br>* Hmm... you seem new to this. Maybe even new to the Underground!<br>* Well, guess lil old me should be there to help you!<br>* Come over and talk to me if you want to get some help!")
             }
