@@ -52,6 +52,11 @@ b {
     font-weight: normal;
 }
 
+i {
+    color: red;
+    font-style:normal;
+}
+
 #output {
     background-color: #000000;
     border: 5px solid #fff;
