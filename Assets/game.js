@@ -174,14 +174,14 @@ const equipment = {
 
 const cmd = {
     use: (i)=>{
-        if (i in items | i in equipment) {
-            if (i in inventory) {
+        if (i in items.toLowerCase() | i in equipment.toLowerCase()) {
+            if (i in inventory.toLowerCase()) {
                 i.onUse();
             } else {
                 appendOutput("You don't have that item.");
             }
         } else {
-            appendOutput(`"${i}" is not a valid item. Check your capitalization and spelling, and try again.`)
+            appendOutput(`"${i}" is not a valid item. Check your spelling and try again.`)
         }
     },
 
